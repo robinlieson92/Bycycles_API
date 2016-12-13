@@ -36,7 +36,8 @@ class BycyclesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bycycle = Bycycles::create($request->all());
+        return response()->json($bycycle);
     }
 
     /**
@@ -47,7 +48,8 @@ class BycyclesController extends Controller
      */
     public function show($id)
     {
-        //
+        $bycycle = Bycycles::find($id);
+        return response()->json($bycycle);
     }
 
     /**
@@ -70,7 +72,8 @@ class BycyclesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bycycle = Bycycles::find($id)->update($request->all());
+        return response()->json($bycycle);
     }
 
     /**
@@ -81,6 +84,7 @@ class BycyclesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bycycle = Bycycles::destroy($id);
+        return response()->json($bycycle);
     }
 }

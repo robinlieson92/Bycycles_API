@@ -15,7 +15,12 @@
 //     return $app->version();
 // });
 
-$app->group(['prefix' => 'api/v1/bycycles'], function($app)
+$app->group(['prefix' => 'api/v1'], function($app)
 {
-  $app->get('/','BycyclesController@index');
+  $app->get('/bycycles','BycyclesController@index');
+  $app->get('/bycycles/{bycycles}','BycyclesController@show');
+  $app->post('/bycycles','BycyclesController@store');
+  $app->put('/bycycles/{bycycles}','BycyclesController@update');
+  // $app->patch('/bycycles/{bycycles}', 'BycyclesController@update');
+  $app->delete('/bycycles/{bycycles}','BycyclesController@destroy');
 });
